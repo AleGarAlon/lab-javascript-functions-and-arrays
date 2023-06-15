@@ -1,41 +1,139 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  
+  if ( num1 > num2) {
+    return num1
+  }
+  else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {  
+  let longestWord = words[0];
+    
+  if (words.length === 0) {
+    return null;
+  }
+  
+  for (let i = 0; i < words.length; i += 1) {
+    if (words[i].length > longestWord.length) {
+      longestWord = words[i];
+    }
+  }
+  
+  return longestWord;
+}
+  
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sum = 0; 
+
+  numbers.forEach(function(element) {
+    sum += element; 
+  });
+
+  return sum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+function sum(mixedArr) {
+  let sums = 0;
+  mixedArr.forEach(function(element) {
+    
+    if (typeof element === 'string') {
+      sums += element.length
+    }
+    else if (typeof element === 'number' || typeof element === 'boolean') {
+      sums += element
+    }
+    
+    else  {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+    
+  });
+  return sums;
+}
+
+console.log(sum(mixedArr))
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sum = 0; 
+if (numbersAvg.length === 0) {
+  return null
+}
+  numbersAvg.forEach(function(element) {
+    sum += element; 
+    console.log(sum)
+  });
+    sum /= numbersAvg.length
+  return sum;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  let sum = 0; 
+  if (wordsArr.length === 0) {
+    return null
+  }
+    wordsArr.forEach(function(element) {
+      sum += element.length
+      
+    });
+      sum /= wordsArr.length
+    return sum;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(words) {
+  let sum = 0; 
+  if (words.length === 0) {
+    return null
+  }
+  else 
+  {words.forEach(function(element) {
+    if (typeof element === 'string') {
+      sum += element.length
+    }
+    else if (typeof element === 'number' || typeof element === 'boolean') {
+      sum += element
+    }
+    else if (typeof element === 'boolean' && element) {
+      sum += 1
+    }
+    else if (typeof element === 'boolean' && !element) {
+      sum += 0
+    }
+      
+    });
+  }
+      sum /= words.length
+    return sum;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +150,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  const uniquified = [];
+  if (wordsUnique.length === 0) {
+    return null
+  }
+  else {wordsUnique.forEach(function (element) {
+   if (uniquified.includes(element)) {
+      
+    }
+    else {
+      uniquified.push(element);
+    }
+  });
+}
+  return uniquified;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(wordsFind, word) {
+  if (wordsFind.length === 0) {
+    return null
+  }
+  else if (wordsFind.includes(word)){
+    return true;
+  }
+  else if (!wordsFind.includes(word)){
+    return false;
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -78,7 +200,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, word) {
+  let counter = 0
+  if (wordsCount.length === 0) {
+    return 0
+  }
+  else {wordsCount.forEach(function (element) {
+    if (element === word) {
+      counter += 1
+    }
+    
+  });
+  return counter;
+}
+}
 
 
 
